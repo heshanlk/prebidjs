@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * @file
+ * Installation file.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function prebidjs_dfp_install() {
+  variable_get('dfp_disable_init_load', 1);
+}
+
+/**
+ * Implements hook_schema().
+ */
+function prebidjs_dfp_schema() {
+  $schema['prebidjs_dfp'] = array(
+    'description' => 'The table to hold the Prebid.js config data for ctools exportables.',
+    'fields' => array(
+      'schema_name' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => "The schema of the Prebid.js exportable.",
+      ),
+      'machinename' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => "The unique name of the Prebid.js exportable.",
+      ),
+      'settings' => array(
+        'type' => 'blob',
+        'description' => "Serialized array of settings.",
+        'size' => 'big',
+        'serialize' => TRUE,
+      ),
+    ),
+    'unique keys' => array(
+      'machinename' => array('machinename'),
+    ),
+  );
+
+  return $schema;
+}

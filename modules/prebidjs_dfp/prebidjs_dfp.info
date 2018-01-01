@@ -1,0 +1,7 @@
+name = Prebid.js for DFP
+description = Free and open source solutions for publishers to quickly implement header bidding to work with DFP Ads by Google.
+core = 7.x
+package = Advertising
+dependencies[] = dfp
+dependencies[] = prebidjs
+configure = admin/structure/dfp_ads/settings

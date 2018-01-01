@@ -1,0 +1,647 @@
+<?php
+
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_libraries_info().
+ */
+function prebidjs_libraries_info() {
+  $libraries['prebidjs'] = array(
+    'name' => 'Prebid.js',
+    'vendor url' => 'http://prebid.org',
+    'download url' => 'http://prebid.org/download.html',
+    'version arguments' => array(
+      'file' => 'prebid.js',
+      'pattern' => '/v(\d.+)/',
+      'lines' => 1,
+    ),
+    'files' => array(
+      'js' => array('prebid.js'),
+    ),
+  );
+  return $libraries;
+}
+
+
+/**
+ * Implements hook_prebidjs_bidder_adapters_info().
+ */
+function prebidjs_prebidjs_bidder_adapters_info(){
+  $bidder_adapters = array();
+  $bidder_adapters = array(
+    'oftmedia' => array(
+      'name' => 'oftmedia',
+      'settings' => array(
+        'placementId' => '',
+      ),
+    ),
+    'aardvark' => array(
+      'name' => 'aardvark',
+      'settings' => array(
+        'ai' => '',
+        'sc' => '',
+      ),
+    ),
+    'adblade' => array(
+      'name' => 'adblade',
+      'settings' => array(
+        'partnerId' => '',
+      ),
+    ),
+    'adbund' => array(
+      'name' => 'adbund',
+      'settings' => array(
+        'sid' => '',
+        'bidfloor' => '',
+      ),
+    ),
+    'adbutler' => array(
+      'name' => 'adbutler',
+      'settings' => array(
+        'accountID' => '',
+        'zoneID' => '',
+      ),
+    ),
+    'adform' => array(
+      'name' => 'adform',
+      'settings' => array(
+        'mid' => '',
+      ),
+    ),
+    'adkernel' => array(
+      'name' => 'adkernel',
+      'settings' => array(
+        'host' => '',
+        'zoneId' => '',
+      ),
+    ),
+    'admedia' => array(
+      'name' => 'admedia',
+      'settings' => array(
+        'aid' => '',
+      ),
+    ),
+    'admixer' => array(
+      'name' => 'admixer',
+      'settings' => array(
+        'zone' => '',
+      ),
+    ),
+    'adsupply' => array(
+      'name' => 'adsupply',
+      'settings' => array(
+        'clientId' => '',
+        'siteId' => '',
+        'zoneId' => '',
+        'endpointUrl' => '',
+      ),
+    ),
+    'adxcg' => array(
+      'name' => 'adxcg',
+      'settings' => array(
+        'adzoneid' => '',
+      ),
+    ),
+    'adyoulike' => array(
+      'name' => 'adyoulike',
+      'settings' => array(
+        'placement' => '',
+      ),
+    ),
+    'aerserv' => array(
+      'name' => 'aerserv',
+      'settings' => array(
+        'plc' => '',
+      ),
+    ),
+    'aol' => array(
+      'name' => 'aol',
+      'settings' => array(
+        'placement' => '',
+        'network' => '',
+      ),
+    ),
+    'appnexusAst' => array(
+      'name' => 'appnexusAst',
+      'settings' => array(
+        'placementId' => '',
+      ),
+    ),
+    'appnexus' => array(
+      'name' => 'appnexus',
+      'settings' => array(
+        'placementId' => '',
+      ),
+    ),
+    'atomx' => array(
+      'name' => 'atomx',
+      'settings' => array(
+        'id' => '',
+      ),
+    ),
+    'audienceNetwork' => array(
+      'name' => 'audienceNetwork',
+      'settings' => array(
+        'placementId' => '',
+      ),
+    ),
+    'beachfront' => array(
+      'name' => 'beachfront',
+      'settings' => array(
+        'appId -' => '',
+        'bidfloor' => '',
+      ),
+    ),
+    'bidfluence' => array(
+      'name' => 'bidfluence',
+      'settings' => array(
+        'adunitId' => '',
+        'pubId' => '',
+      ),
+    ),
+    'brealtime' => array(
+      'name' => 'brealtime',
+      'settings' => array(
+        'placementId' => '',
+      ),
+    ),
+    'brightcom' => array(
+      'name' => 'brightcom',
+      'settings' => array(
+        'tagId' => '',
+      ),
+    ),
+    'c1x' => array(
+      'name' => 'c1x',
+      'settings' => array(
+        'siteId' => '',
+      ),
+    ),
+    'carambola' => array(
+      'name' => 'carambola',
+      'settings' => array(
+        'pid' => '',
+        'did' => '',
+        'wid' => '',
+      ),
+    ),
+    'conversant' => array(
+      'name' => 'conversant',
+      'settings' => array(
+        'site_id' => '',
+      ),
+    ),
+    'cox' => array(
+      'name' => 'cox',
+      'settings' => array(
+        'size' => '',
+        'id' => '',
+        'siteId' => '',
+      ),
+    ),
+    'criteo' => array(
+      'name' => 'criteo',
+      'settings' => array(
+        'zoneId' => '',
+      ),
+    ),
+    'defymedia' => array(
+      'name' => 'defymedia',
+      'settings' => array(
+        'placementId' => '',
+      ),
+    ),
+    'districtm' => array(
+      'name' => 'districtm',
+      'settings' => array(
+        'placementId' => '',
+      ),
+    ),
+    'districtmDMX' => array(
+      'name' => 'districtmDMX',
+      'settings' => array(
+        'id' => '',
+      ),
+    ),
+    'eplanning' => array(
+      'name' => 'eplanning',
+      'settings' => array(
+        'ci' => '',
+      ),
+    ),
+    'essens' => array(
+      'name' => 'essens',
+      'settings' => array(
+        'placementID' => '',
+      ),
+    ),
+    'featureforward' => array(
+      'name' => 'featureforward',
+      'settings' => array(
+        'placementId' => '',
+      ),
+    ),
+    'fidelity' => array(
+      'name' => 'fidelity',
+      'settings' => array(
+        'zoneid' => '',
+      ),
+    ),
+    'getintent' => array(
+      'name' => 'getintent',
+      'settings' => array(
+        'pid' => '',
+      ),
+    ),
+    'gourmetads' => array(
+      'name' => 'gourmetads',
+      'settings' => array(
+        'placementId' => '',
+      ),
+    ),
+    'gumgum' => array(
+      'name' => 'gumgum',
+      'settings' => array(
+        'inScreen' => '',
+        'inSlot' => '',
+      ),
+    ),
+    'headbidding' => array(
+      'name' => 'headbidding',
+      'settings' => array(
+        'zoneId' => '',
+        'host' => '',
+      ),
+    ),
+    'hiromedia' => array(
+      'name' => 'hiromedia',
+      'settings' => array(
+        'accountId' => '',
+      ),
+    ),
+    'huddledmasses' => array(
+      'name' => 'huddledmasses',
+      'settings' => array(
+        'placement_id' => '',
+      ),
+    ),
+    'imonomy' => array(
+      'name' => 'imonomy',
+      'settings' => array(
+        'publisher_id' => '',
+      ),
+    ),
+    'indexExchange' => array(
+      'name' => 'indexExchange',
+      'settings' => array(
+        'id' => '',
+        'siteID' => '',
+      ),
+    ),
+    'inneractive' => array(
+      'name' => 'inneractive',
+      'settings' => array(
+        'appId' => '',
+        'adSpotType' => '',
+      ),
+    ),
+    'innity' => array(
+      'name' => 'innity',
+      'settings' => array(
+        'pub' => '',
+        'zone' => '',
+      ),
+    ),
+    'jcm' => array(
+      'name' => 'jcm',
+      'settings' => array(
+        'id' => '',
+        'siteID' => '',
+      ),
+    ),
+    'justpremium' => array(
+      'name' => 'justpremium',
+      'settings' => array(
+        'zone' => '',
+      ),
+    ),
+    'kargo' => array(
+      'name' => 'kargo',
+      'settings' => array(
+        'placementId' => '',
+      ),
+    ),
+    'komoona' => array(
+      'name' => 'komoona',
+      'settings' => array(
+        'hbid' => '',
+        'placementId' => '',
+      ),
+    ),
+    'lifestreet' => array(
+      'name' => 'lifestreet',
+      'settings' => array(
+        'jstag_url' => '',
+        'slot' => '',
+        'adkey' => '',
+        'ad_size' => '',
+      ),
+    ),
+    'mantis' => array(
+      'name' => 'mantis',
+      'settings' => array(
+        'property' => '',
+      ),
+    ),
+    'marsmedia' => array(
+      'name' => 'marsmedia',
+      'settings' => array(
+        'publisherID' => '',
+      ),
+    ),
+    'matomy' => array(
+      'name' => 'matomy',
+      'settings' => array(
+        'placementId' => '',
+      ),
+    ),
+    'memeglobal' => array(
+      'name' => 'memeglobal',
+      'settings' => array(
+        'tagid' => '',
+      ),
+    ),
+    'mobfox' => array(
+      'name' => 'mobfox',
+      'settings' => array(
+        's' => '',
+      ),
+    ),
+    'nginad' => array(
+      'name' => 'nginad',
+      'settings' => array(
+        'pzoneid' => '',
+        'nginadDomain' => '',
+      ),
+    ),
+    'onedisplay' => array(
+      'name' => 'onedisplay',
+      'settings' => array(
+        'placement' => '',
+        'network' => '',
+      ),
+    ),
+    'onemobile' => array(
+      'name' => 'onemobile',
+      'settings' => array(
+        'dcn' => '',
+        'pos' => '',
+      ),
+    ),
+    'openx' => array(
+      'name' => 'openx',
+      'settings' => array(
+        'unit' => '',
+        'delDomain' => '',
+      ),
+    ),
+    'pagescience' => array(
+      'name' => 'pagescience',
+      'settings' => array(
+        'placementId' => '',
+      ),
+    ),
+    'piximedia' => array(
+      'name' => 'piximedia',
+      'settings' => array(
+        'siteId' => '',
+        'placementId' => '',
+      ),
+    ),
+    'platformio' => array(
+      'name' => 'platformio',
+      'settings' => array(
+        'pubId' => '',
+        'siteId' => '',
+      ),
+    ),
+    'pollux' => array(
+      'name' => 'pollux',
+      'settings' => array(
+        'zone' => '',
+      ),
+    ),
+    'pubgears' => array(
+      'name' => 'pubgears',
+      'settings' => array(
+        'publisherName' => '',
+        'pubZone' => '',
+      ),
+    ),
+    'pubmatic' => array(
+      'name' => 'pubmatic',
+      'settings' => array(
+        'publisherId' => '',
+        'adSlot' => '',
+      ),
+    ),
+    'pulsepoint' => array(
+      'name' => 'pulsepoint',
+      'settings' => array(
+        'cf' => '',
+        'cp' => '',
+        'ct' => '',
+      ),
+    ),
+    'quantcast' => array(
+      'name' => 'quantcast',
+      'settings' => array(
+        'publisherId' => '',
+      ),
+    ),
+    'rhythmone' => array(
+      'name' => 'rhythmone',
+      'settings' => array(
+        'placementId' => '',
+      ),
+    ),
+    'roxot' => array(
+      'name' => 'roxot',
+      'settings' => array(
+        'publisherId' => '',
+      ),
+    ),
+    'rubicon' => array(
+      'name' => 'rubicon',
+      'settings' => array(
+        'accountId' => '',
+        'siteId' => '',
+        'zoneId' => '',
+      ),
+    ),
+    'sekindoUM' => array(
+      'name' => 'sekindoUM',
+      'settings' => array(
+        'spaceId' => '',
+      ),
+    ),
+    'sharethrough' => array(
+      'name' => 'sharethrough',
+      'settings' => array(
+        'pkey' => '',
+      ),
+    ),
+    'smartadserver' => array(
+      'name' => 'smartadserver',
+      'settings' => array(
+        'domain' => '',
+        'siteId' => '',
+        'pageId' => '',
+        'formatId' => '',
+      ),
+    ),
+    'smartyads' => array(
+      'name' => 'smartyads',
+      'settings' => array(
+        'banner_id' => '',
+      ),
+    ),
+    'stickyadstv' => array(
+      'name' => 'stickyadstv',
+      'settings' => array(
+        'zoneId' => '',
+      ),
+    ),
+    'sonobi' => array(
+      'name' => 'sonobi',
+      'settings' => array(
+        'ad_unit' => '',
+        'placement_id' => '',
+      ),
+    ),
+    'sovrn' => array(
+      'name' => 'sovrn',
+      'settings' => array(
+        'tagid' => '',
+      ),
+    ),
+    'spotx' => array(
+      'name' => 'spotx',
+      'settings' => array(
+        'channel_id' => '',
+        'video_slot' => '',
+        'slot' => '',
+      ),
+    ),
+    'springserve' => array(
+      'name' => 'springserve',
+      'settings' => array(
+        'impId' => '',
+        'supplyPartnerId' => '',
+      ),
+    ),
+    'tapsense' => array(
+      'name' => 'tapsense',
+      'settings' => array(
+        'ad_unit_id' => '',
+        'user' => '',
+      ),
+    ),
+    'thoughtleadr' => array(
+      'name' => 'thoughtleadr',
+      'settings' => array(
+        'placementId' => '',
+      ),
+    ),
+    'trion' => array(
+      'name' => 'trion',
+      'settings' => array(
+        'pubId' => '',
+        'sectionId' => '',
+      ),
+    ),
+    'triplelift' => array(
+      'name' => 'triplelift',
+      'settings' => array(
+        'inventoryCode' => '',
+      ),
+    ),
+    'twenga' => array(
+      'name' => 'twenga',
+      'settings' => array(
+        'placementId' => '',
+      ),
+    ),
+    'ucfunnel' => array(
+      'name' => 'ucfunnel',
+      'settings' => array(
+        'adid' => '',
+        'width' => '',
+        'height' => '',
+      ),
+    ),
+    'underdogmedia' => array(
+      'name' => 'underdogmedia',
+      'settings' => array(
+        'siteId' => '',
+      ),
+    ),
+    'unruly' => array(
+      'name' => 'unruly',
+      'settings' => array(
+        'siteId' => '',
+        'targetingUUID' => '',
+      ),
+    ),
+    'vertamedia' => array(
+      'name' => 'vertamedia',
+      'settings' => array(
+        'aid' => '',
+        'placementId' => '',
+      ),
+    ),
+    'vertoz' => array(
+      'name' => 'vertoz',
+      'settings' => array(
+        'placementId' => '',
+      ),
+    ),
+    'wideorbit' => array(
+      'name' => 'wideorbit',
+      'settings' => array(
+        'pbId' => '',
+        'pId' => '',
+      ),
+    ),
+    'widespace' => array(
+      'name' => 'widespace',
+      'settings' => array(
+        'sid' => '',
+        'cur' => '',
+      ),
+    ),
+    'xhb' => array(
+      'name' => 'xhb',
+      'settings' => array(
+        'placementId' => '',
+      ),
+    ),
+    'yieldbot' => array(
+      'name' => 'yieldbot',
+      'settings' => array(
+        'psn' => '',
+        'slot' => '',
+      ),
+    ),
+  );
+  return $bidder_adapters;
+}
+
+/**
+ * Custom function to get the bidder adapters
+ */
+function prebidjs_get_bidder_adapters(){
+  return module_invoke_all('prebidjs_bidder_adapters_info');
+}

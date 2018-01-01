@@ -1,0 +1,5 @@
+name = Prebid.js
+description = Free and open source solutions for publishers to quickly implement header bidding.
+core = 7.x
+package = Advertising
+dependencies[] = libraries
