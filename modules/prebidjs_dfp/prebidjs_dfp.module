@@ -262,9 +262,14 @@ function prebidjs_dfp_dfp_tag_alter(&$tag) {
         );
       }
       $sizes = explode(',', $tag->size);
+      $ad_sizes = array();
+      foreach($sizes as $size){
+        list($width, $height) = explode('x', $size);
+        $ad_sizes[] = array($width, $height);
+      }
       $prebidjs_dfp[] = array(
         'code' => $tag->placeholder_id,
-        'sizes' => $sizes,
+        'sizes' => $ad_sizes,
         'bids' => $bids
       );
       $js = 'adUnits = adUnits.concat(' . json_encode($prebidjs_dfp) . ');' . "\n";
