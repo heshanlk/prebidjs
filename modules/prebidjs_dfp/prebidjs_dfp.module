@@ -265,7 +265,7 @@ function prebidjs_dfp_dfp_tag_alter(&$tag) {
       $ad_sizes = array();
       foreach($sizes as $size){
         list($width, $height) = explode('x', $size);
-        $ad_sizes[] = array($width, $height);
+        $ad_sizes[] = array((int)$width, (int)$height);
       }
       $prebidjs_dfp[] = array(
         'code' => $tag->placeholder_id,
